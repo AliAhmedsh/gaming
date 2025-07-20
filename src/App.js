@@ -12,6 +12,13 @@ import './styles/components/home.css';
 import GAMES_CATALOG from './games/gamesCatalog';
 import LoadingSpinner from './components/LoadingSpinner';
 import GameCard from './components/GameCard';
+import GameSelection from './components/GameSelection';
+import MemoryGame from './games/MemoryGame';
+import WordScramble from './games/WordScramble';
+import SudokuGame from './games/SudokuGame';
+import NonogramGame from './games/NonogramGame';
+import TowerOfHanoi from './games/TowerOfHanoi';
+import TriviaGame from './games/TriviaGame';
 
 // Theme Context
 const ThemeContext = createContext({
@@ -174,28 +181,28 @@ const Navigation = () => {
   );
 };
 
-// Lazy load game components with loading states
-const gameComponents = {};
-GAMES_CATALOG.forEach(game => {
-  // Match the component file name (e.g., 'memory' -> './games/MemoryGame')
-  const componentName = game.id.charAt(0).toUpperCase() + game.id.slice(1) + 'Game';
-  gameComponents[game.id] = lazy(() => import(`./games/${componentName}`));
-});
-
-// Lazy load GameSelection
-const GameSelection = lazy(() => import('./components/GameSelection'));
+const gameComponents = {
+  memory: MemoryGame,
+  wordscramble: WordScramble,
+  sudoku: SudokuGame,
+  nonogram: NonogramGame,
+  hanoi: TowerOfHanoi,
+  trivia: TriviaGame
+};
 
 // Game Wrapper Component
 const GameWrapper = ({ gameId }) => {
   const GameComponent = gameComponents[gameId];
   
-  return (
-    <div className="game-container">
-      <Suspense fallback={<LoadingSpinner />}>
-        <GameComponent />
-      </Suspense>
-    </div>
-  );
+  if (!GameComponent) {
+    return (
+      <div className="error-container">
+        <p>Game not found. Please select a valid game.</p>
+      </div>
+    );
+  }
+  
+  return <GameComponent />;
 };
 
 // Home Page Component
