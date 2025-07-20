@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy, useEffect, createContext, useContext, useRef } from 'react';
+import React, { useState, Suspense, useEffect, createContext, useContext, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, Navigate, Link, useLocation } from 'react-router-dom';
 import { FaMoon, FaSun, FaGamepad, FaHome, FaStar, FaFire, FaSearch, FaDice } from 'react-icons/fa';
 import './App.css';
