@@ -1,0 +1,222 @@
+.memory-game {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat {
+  background: #f0f4f8;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #2c3e50;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 100px;
+}
+
+.new-game-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.new-game-btn:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+  perspective: 1000px;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.memory-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-front {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background: white;
+  transform: rotateY(180deg);
+  font-size: 2.5em;
+  color: #2c3e50;
+}
+
+.card-symbol {
+  font-size: 2em;
+  user-select: none;
+}
+
+.game-complete {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  animation: popIn 0.5s ease-out;
+}
+
+.game-complete h2 {
+  color: #2ecc71;
+  margin-bottom: 15px;
+}
+
+.play-again-btn {
+  background: #2ecc71;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+}
+
+.play-again-btn:hover {
+  background: #27ae60;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(46, 204, 113, 0.4);
+}
+
+/* Animations */
+@keyframes popIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .game-board {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  .stats {
+    gap: 10px;
+  }
+  
+  .stat {
+    padding: 6px 12px;
+    min-width: 80px;
+    font-size: 0.9em;
+  }
+  
+  .card-symbol {
+    font-size: 1.8em;
+  }
+}
+
+/* Card flip animation */
+.memory-card {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+.memory-card .card-front,
+.memory-card .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.memory-card .card-front {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  transform: rotateY(0deg);
+}
+
+.memory-card .card-back {
+  background: white;
+  transform: rotateY(180deg);
+  font-size: 2.5em;
+  color: #2c3e50;
+}
+
+.memory-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+  transform: rotateY(180deg);
+  opacity: 0.7;
+  cursor: default;
+}
+
+.memory-card.matched .card-back {
+  background: #e8f5e9;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+}

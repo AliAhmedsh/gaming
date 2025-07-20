@@ -1,0 +1,95 @@
+/* Home Page Styles */
+.home-container {
+  padding: 2rem 0;
+  background-color: var(--bg-primary);
+  min-height: calc(100vh - 4rem);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary-50), var(--bg-primary));
+  padding: 4rem 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-light);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.featured-games {
+  padding: 2rem 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.featured-games h2 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+    padding: 0 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+  }
+  
+  .featured-games h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .featured-games h2 {
+    font-size: 1.5rem;
+  }
+}

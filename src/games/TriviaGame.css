@@ -1,0 +1,138 @@
+.trivia-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.score-time {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.progress {
+  margin-bottom: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+.question-container {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.question {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 1.4em;
+  line-height: 1.4;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.option {
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.option:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.option.correct {
+  background-color: #4caf50;
+  color: white;
+  border-color: #388e3c;
+}
+
+.option.incorrect {
+  background-color: #f44336;
+  color: white;
+  border-color: #d32f2f;
+}
+
+.feedback {
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.feedback.correct {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.feedback.incorrect {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.start-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:hover {
+  background-color: #1976d2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+  
+  .question {
+    font-size: 1.2em;
+  }
+  
+  .trivia-container {
+    margin: 0 15px;
+    padding: 15px;
+  }
+}
