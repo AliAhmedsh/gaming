@@ -1,8 +1,19 @@
 [build]
-  command = "npm run build"
+  command = "npm install && npm run build"
   publish = "build"
+  environment = { NODE_VERSION = "18.17.0", NPM_FLAGS = "--legacy-peer-deps" }
+
+[build.environment]
+  NODE_OPTIONS = "--openssl-legacy-provider"
+  CI = "false"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[dev]
+  framework = "create-react-app"
